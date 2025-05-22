@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <link rel="icon" href="/favicon_io/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <title>Pub 1316</title>
+    <link rel="stylesheet" href="style2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+        
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="/index.html">PUB 1316</a></li>
+            <li><a href="/index2.html">Galeria</a></li>
+            <li><a href="/index3.html">Sklep</a></li>
+            <li><a href="/index4.html">Koszyk &nbsp; <span id="cart-count">0</span></a></li>
+    
+        </ul>
+    
+    </nav>
+
+    <header>
+        <img class="ukiyo image-1" src="/img/og.jpg" data-u-willchange decoding="async" />
+        <div class="banner">
+            <div>
+                <h2>PUB pod 1316</h2>
+                <h3>Bardzo fajny Pub</h3>
+            </div>
+        </div>
+    </header>
+
+    <section class="row">
+        <img class="ukiyo image-2" data-u-speed="1.3" src="/img/1.jpg" />
+        <div class="about">
+            <h2>O nas</h2>
+            <p>
+                Bla bla bla jakis tekst Lorem ipsum dolor sit amet. zdjecia za w galeri zamowienia skladac w sklepie w wydarzeniach przyszle imprezy
+
+            </p>
+        </div>
+    </section>
+    <footer>
+        <img class="ukiyo image-3" src="/img/ft5.jpg" />
+        <div class="footer">
+            <div>
+                <h2>Kontakt</h2>
+                <ul class="ul1">
+                    <li>Robert</li>
+                    <li class="li1">Robert podaj cos</li>
+                    <li>Zarzyk</li>
+                    <li class="li1">Zarzyk podaj cos</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
+                document.getElementById('cart-count').textContent = totalQuantity;
+            }
+            window.onload = updateCartCount;
+        </script>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/ukiyojs@4.2.0/dist/ukiyo.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="main2.js"></script>
+</body>
+
+</html>

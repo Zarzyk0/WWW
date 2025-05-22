@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <link rel="icon" href="/favicon_io/favicon.ico" type="image/x-icon">
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>Pub 1316</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="/index.html">PUB 1316</a></li>
+            <li><a href="/index2.html">Galeria</a></li>
+            <li><a href="/index3.html">Sklep</a></li>
+            <li><a href="/index4.html">Koszyk &nbsp; <span id="cart-count">0</span></a></li>
+    
+        </ul>
+    
+    </nav>
+
+    <section class="creative-showcase--slider">
+        <div class="banner-horizental">
+            <div class="swiper swiper-container-h">
+                <div class="swiper-wrapper">
+                   
+                
+                    <div class="swiper-slide" onclick="window.location.href='index3.html#d1'">
+                        <div class="slide-bg" style="background-image: url(/img/1.jpg)" data-swiper-parallax="300">
+                            <div class="slide-container">
+                                <div class="slide-row">
+                                    <div class="slider-content">
+                                        <h3 class="slide-subtitle" data-swiper-parallax="-500">
+                                            PUB 1316
+                                        </h3>
+                                        <h2 class="slide-heading" data-swiper-parallax="-1000">
+                                            <span>Płonący Warunek</span>
+                                        </h2>
+                                        <p data-swiper-parallax="-1500">
+                                        Zaczyna się dramatem, ale na końcu jest szansa na happy end, dokładnie jak zaliczanie semestru na ostatnią chwilę
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" onclick="window.location.href='index3.html#d2'">
+                        <div class="slide-bg" style="background-image: url(/img/2.jpg)" data-swiper-parallax="300">
+                            <div class="slide-container">
+                                <div class="slide-row">
+                                    <div class="slider-content">
+                                        <h3 class="slide-subtitle" data-swiper-parallax="-500">
+                                            PUB 1316
+                                        </h3>
+                                        <h2 class="slide-heading" data-swiper-parallax="-1000">
+                                            <span>Zielony Czarodziej</span>
+                                        </h2>
+                                        <p data-swiper-parallax="-1500">
+                                            Smak, który robi sztuczki lepsze niż sesyjna ściąga
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" onclick="window.location.href='index3.html#d3'">
+                        <div class="slide-bg" style="background-image: url(/img/3.jpg)" data-swiper-parallax="300">
+                            <div class="slide-container">
+                                <div class="slide-row">
+                                    <div class="slider-content">
+                                        <h3 class="slide-subtitle" data-swiper-parallax="-500">
+                                            PUB 1316
+                                        </h3>
+                                        <h2 class="slide-heading" data-swiper-parallax="-1000">
+                                            <span>Malinito</span>
+                                        </h2>
+                                        <p data-swiper-parallax="-1500">
+                                            Mojito, ale z naszym autorskim twistem.
+                                            Słodkie, orzeźwiające i wchodzi jak złoto.
+                                            Taki drink, przy którym czujesz się jak na wakacjach,
+                                            nawet jeśli za oknem sesja i 10 stopni na plusie.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide" onclick="window.location.href='index3.html#d4'">
+                        <div class="slide-bg" style="background-image: url(/img/4.jpg)" data-swiper-parallax="300">
+                            <div class="slide-container">
+                                <div class="slide-row">
+                                    <div class="slider-content">
+                                        <h3 class="slide-subtitle" data-swiper-parallax="-500">
+                                            PUB 1316
+                                        </h3>
+                                        <h2 class="slide-heading" data-swiper-parallax="-1000">
+                                            <span>Chmurka<br>w szklance</span>
+                                        </h2>
+                                        <p data-swiper-parallax="-1500">
+                                            Leciutki jak Twoje podejście do nauki przed deadlinem i pianka tak puszysta, że mogłaby zastąpić poduszkę po
+                                            nieprzespanej nocy.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
+            document.getElementById('cart-count').textContent = totalQuantity;
+        }
+        window.onload = updateCartCount;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

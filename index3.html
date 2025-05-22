@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <link rel="icon" href="/favicon_io/favicon.ico" type="image/x-icon">
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pub 1316</title>
+    <link rel="stylesheet" href="style3.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  </head>
+  <body>
+    <nav>
+        <ul class="menu">
+            <li><a href="/index.html">PUB 1316</a></li>
+            <li><a href="/index2.html">Galeria</a></li>
+            <li><a href="/index3.html">Sklep</a></li>
+            <li><a href="/index4.html">Koszyk &nbsp; <span id="cart-count">0</span></a></li>
+    
+        </ul>
+    
+    </nav>
+
+
+<main class="event-signup-main">
+    <div class="event-signup-container">
+        <div class="event-signup-form-wrapper">
+            <h2>Dołącz do Nas!</h2>
+            <p class="event-description">
+                Nie przegap naszego nadchodzącego wydarzenia! Wypełnij poniższy formularz, aby zarezerwować swoje miejsce.
+                Czekają na Ciebie niesamowite atrakcje i niezapomniana atmosfera.
+            </p>
+            <p class="participant-info-event">Aktualnie zapisanych: <span id="event-participant-count">0</span> osób.</p>
+
+            <form id="event-registration-form">
+                <div class="form-group">
+                    <label for="eventFirstName">Imię:</label>
+                    <input type="text" id="eventFirstName" name="eventFirstName" required placeholder="np. Jan">
+                </div>
+                <div class="form-group">
+                    <label for="eventLastName">Nazwisko:</label>
+                    <input type="text" id="eventLastName" name="eventLastName" required placeholder="np. Kowalski">
+                </div>
+                <div class="form-group">
+                    <label for="eventEmail">Adres Email:</label>
+                    <input type="email" id="eventEmail" name="eventEmail" required placeholder="np. jan.kowalski@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="eventGuests">Liczba dodatkowych gości (opcjonalnie):</label>
+                    <input type="number" id="eventGuests" name="eventGuests" min="0" max="5" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="event согласен" name="event согласен" required>
+                    <label for="event согласен" class="checkbox-label">Zgadzam się na przetwarzanie moich danych osobowych.</label>
+                </div>
+                <button type="submit" class="submit-button">Zarejestruj się</button>
+                <p id="event-form-message" class="form-message"></p>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer class="theme-event">
+    <p>© Pub 1316 - Wydarzenia</p>
+</footer>
+
+<!-- Skrypty specyficzne dla tej podstrony (jeśli są potrzebne i nie ma ich w głównym skrypcie) -->
+<!-- Pamiętaj, że muszą być one obsługiwane przez funkcję executeScriptsFromNewBody() -->
+<script>
+    // Prosty przykład logiki dla tej konkretnej podstrony,
+    // która mogłaby być również częścią globalnego spa-full-body-script.js
+    // i wywoływana warunkowo.
+    // Tutaj jest tylko dla demonstracji, że skrypty z podstrony mogą być wykonane.
+    console.log("Skrypt z event-signup-body.html załadowany!");
+
+    // Logika formularza zapisu na event (podobna do tej z poprzedniego przykładu, ale dostosowana)
+    // Ta logika powinna być teraz częścią Twojego głównego skryptu `spa-full-body-script.js`
+    // i być aktywowana, gdy ta konkretna podstrona jest ładowana,
+    // lub być dołączona do elementów formularza przy pomocy delegacji zdarzeń.
+
+    // PONIŻEJ JEST PRZYKŁAD, JAK MOŻNA BY TO ZROBIĆ, ALE ZALECAM INTEGRACJĘ Z GŁÓWNYM SKRYPTEM
+
+    /*
+    const eventRegForm = document.getElementById('event-registration-form');
+    const eventParticipantCountSpan = document.getElementById('event-participant-count');
+    const eventFormMessageP = document.getElementById('event-form-message');
+    const eventStorageKey = 'pub1316_event_participants';
+
+    function getEventParticipants() {
+        const participants = localStorage.getItem(eventStorageKey);
+        return participants ? JSON.parse(participants) : [];
+    }
+
+    function updateEventParticipantCount() {
+        if (eventParticipantCountSpan) {
+            const participants = getEventParticipants();
+            eventParticipantCountSpan.textContent = participants.length;
+        }
+    }
+
+    function saveEventParticipant(participant) {
+        const participants = getEventParticipants();
+        if (participants.some(p => p.email === participant.email)) {
+            if (eventFormMessageP) {
+                eventFormMessageP.textContent = 'Ten email został już użyty do zapisu na to wydarzenie.';
+                eventFormMessageP.className = 'form-message error';
+            }
+            return false;
+        }
+        participants.push(participant);
+        localStorage.setItem(eventStorageKey, JSON.stringify(participants));
+        return true;
+    }
+
+    if (eventRegForm) {
+        eventRegForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (eventFormMessageP) eventFormMessageP.textContent = '';
+
+            const firstName = document.getElementById('eventFirstName').value.trim();
+            const lastName = document.getElementById('eventLastName').value.trim();
+            const email = document.getElementById('eventEmail').value.trim();
+            const guests = document.getElementById('eventGuests').value;
+            const согласен = document.getElementById('event согласен').checked;
+
+            if (!firstName || !lastName || !email) {
+                if (eventFormMessageP) {
+                    eventFormMessageP.textContent = 'Imię, nazwisko i email są wymagane.';
+                    eventFormMessageP.className = 'form-message error';
+                }
+                return;
+            }
+            if (!согласен) {
+                 if (eventFormMessageP) {
+                    eventFormMessageP.textContent = 'Musisz wyrazić zgodę na przetwarzanie danych.';
+                    eventFormMessageP.className = 'form-message error';
+                }
+                return;
+            }
+
+            const newParticipant = { firstName, lastName, email, guests: parseInt(guests) || 0, timestamp: new Date().toISOString() };
+
+            if (saveEventParticipant(newParticipant)) {
+                updateEventParticipantCount();
+                if (eventFormMessageP) {
+                    eventFormMessageP.textContent = 'Dziękujemy za zapis! Do zobaczenia na wydarzeniu!';
+                    eventFormMessageP.className = 'form-message success';
+                }
+                eventRegForm.reset();
+            }
+        });
+    }
+    // Wywołaj przy ładowaniu tej "podstrony"
+    updateEventParticipantCount();
+    */
+</script>
+
+  </body>
+</html>

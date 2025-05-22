@@ -1,0 +1,405 @@
+html{
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    font-size: 17px;
+    line-height: 30px;
+    font-weight: 400;
+    -moz-osx-font-smoothing: grayscale;
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Euclid Circular A", "Poppins", sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    color: #fff;
+    background-color: #1a1a1a;
+    user-select: none;
+    
+}
+
+body,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.ul1 {
+    margin: 40px 0 0;
+    padding-left: 20px;
+}
+
+.ul1 .li1 {
+    height: 40px;
+    opacity: 0.5;
+}
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+nav> :is(h1, span.material-symbols-outlined) {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+}
+
+
+a {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    color: inherit;
+    border-left: #000000 1px solid;
+    opacity: 1;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 10vh;
+    border-radius: 0 0 10px 10px;
+    background-color: #1a1a1a;
+}
+
+.menu li {
+    display: inline-block;
+    width: 25vw;
+    color: #999;
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+}
+
+
+.menu>li:hover>a {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.menu>li:hover>a::before {
+    visibility: visible;
+    scale: 1 1;
+}
+
+
+.menu>li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 7px;
+    font-size: 16px;
+    text-decoration: none;
+    position: relative;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.menu>li>a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 3px;
+    left: 0px;
+    background-color: var(--color-primary);
+    transition: all 0.2s ease-in-out;
+    scale: 0 0;
+    visibility: hidden;
+}
+/* style-event-signup.css */
+
+/* Zakładam, że zmienne CSS są zdefiniowane globalnie lub na początku tego pliku */
+/* :root { ... } */
+
+/* ----- STYLIZACJA NAGŁÓWKA I STOPKI (jeśli są częścią podmienianego body) ----- */
+.theme-event h1 {
+    color: var(--color-accent, #ff6347);
+    font-size: clamp(1.5rem, 5vw, 2.2rem); /* Mniejszy H1 na mobilnych */
+    padding: 0 calc(var(--spacing-unit, 8px) * 1.5); /* Dodatkowy padding dla H1 w headerze */
+    text-align: center; /* Wyśrodkowanie H1 w headerze */
+}
+
+.theme-event {
+    background-color: var(--color-background-section, #0a0a0a);
+    color: var(--color-text, #e0e0e0);
+    padding: calc(var(--spacing-unit, 8px) * 1.5) 0; /* Mniejszy padding góra/dół dla header/footer */
+}
+
+.theme-event nav#page-navigation { /* Kontener nawigacji */
+    display: flex;
+    flex-wrap: wrap; /* Pozwól przyciskom zawijać się na mniejszych ekranach */
+    justify-content: center; /* Wyśrodkuj przyciski */
+    gap: calc(var(--spacing-unit, 8px) * 0.5); /* Mniejszy odstęp między przyciskami */
+    padding: 0 calc(var(--spacing-unit, 8px)); /* Padding dla kontenera nav */
+}
+
+.theme-event nav#page-navigation button {
+    background-color: transparent;
+    color: var(--color-text-muted, #a0a0a0);
+    border: 1px solid transparent;
+    padding: calc(var(--spacing-unit, 8px) * 1) calc(var(--spacing-unit, 8px) * 1.5); /* Mniejszy padding przycisków */
+    margin: 0; /* Usunięty margines, gap załatwia odstępy */
+    border-radius: var(--border-radius, 4px);
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    font-size: 0.9rem; /* Mniejsza czcionka przycisków na mobilnych */
+    flex-grow: 1; /* Opcjonalnie: przyciski mogą zajmować dostępną szerokość */
+    min-width: 120px; /* Minimalna szerokość przycisku */
+    text-align: center;
+}
+
+.theme-event nav#page-navigation button:hover,
+.theme-event nav#page-navigation button:focus {
+    color: var(--color-heading, #ffffff);
+    background-color: rgba(var(--color-accent-rgb, 255, 99, 71), 0.1);
+    border-color: var(--color-accent, #ff6347);
+}
+.theme-event nav#page-navigation button[data-page-load="event-signup-body.html"] {
+    color: var(--color-accent, #ff6347);
+    /* border-bottom: 2px solid var(--color-accent, #ff6347); */ /* Można uprościć na mobilnych */
+    background-color: rgba(var(--color-accent-rgb, 255, 99, 71), 0.15); /* Wyraźniejsze oznaczenie aktywnego */
+    font-weight: 500;
+}
+
+
+/* ----- GŁÓWNA SEKCJA FORMULARZA ----- */
+.event-signup-main {
+    min-height: 75vh; /* Zmniejszona minimalna wysokość, aby uniknąć nadmiernego scrollowania */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--spacing-unit, 8px) * 3) calc(var(--spacing-unit, 8px) * 1.5); /* 24px 12px - mniejszy padding na mobilnych */
+    position: relative;
+    background-image: url('/img/event_background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll; /* Zmieniono na scroll dla lepszej wydajności na mobilnych */
+}
+
+.event-signup-main::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--color-overlay-darker, rgba(0, 0, 0, 0.8)); /* Nieco ciemniejsza nakładka dla lepszego kontrastu na mobilnych */
+    z-index: 1;
+}
+
+.event-signup-container {
+    position: relative;
+    z-index: 2;
+    max-width: 500px; /* Maksymalna szerokość formularza, nawet na desktopie może być mniejsza */
+    width: 100%; /* Zajmuje pełną dostępną szerokość w ramach paddingu rodzica */
+}
+
+.event-signup-form-wrapper {
+    background-color: rgba(10, 10, 10, 0.85); /* Nieco bardziej kryjące tło formularza */
+    padding: calc(var(--spacing-unit, 8px) * 3) calc(var(--spacing-unit, 8px) * 2.5); /* 24px 20px - dostosowany padding */
+    border-radius: var(--border-radius, 4px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Subtelniejszy cień */
+    color: var(--color-text, #e0e0e0);
+}
+
+.event-signup-form-wrapper h2 {
+    text-align: center;
+    color: var(--color-heading, #ffffff);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 5vw, 2.2rem); /* Dostosowany rozmiar H2 */
+    margin-bottom: calc(var(--spacing-unit, 8px) * 1); /* 8px */
+}
+.event-signup-form-wrapper h2::after {
+    content: '';
+    display: block;
+    width: 50px; /* Mniejszy podkreślnik */
+    height: 2px; /* Cieńszy podkreślnik */
+    background-color: var(--color-accent, #ff6347);
+    margin: calc(var(--spacing-unit, 8px) * 1) auto calc(var(--spacing-unit, 8px) * 2.5); /* 8px auto 20px */
+}
+
+
+.event-description {
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit, 8px) * 2); /* 16px */
+    font-size: 0.95rem; /* Mniejsza czcionka opisu */
+    line-height: 1.5;
+    color: var(--color-text-muted, #a0a0a0);
+}
+
+.participant-info-event {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: calc(var(--spacing-unit, 8px) * 2.5); /* 20px */
+    font-size: 1rem; /* Mniejsza czcionka */
+    color: var(--color-text, #e0e0e0);
+}
+#event-participant-count {
+    color: var(--color-accent, #ff6347);
+    font-weight: 700;
+}
+
+/* ----- STYLE FORMULARZA (spójne z poprzednimi sugestiami) ----- */
+.form-group {
+    margin-bottom: calc(var(--spacing-unit, 8px) * 2); /* 16px */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: calc(var(--spacing-unit, 8px) * 0.75); /* 6px */
+    font-weight: 500;
+    font-size: 0.9rem; /* Mniejsza czcionka etykiet */
+    color: var(--color-text, #e0e0e0);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"] {
+    width: 95%;
+    padding: calc(var(--spacing-unit, 8px) * 1.25) calc(var(--spacing-unit, 8px) * 1.5); /* 10px 12px - mniejszy padding inputów */
+    border: 1px solid #383838;
+    border-radius: var(--border-radius, 4px);
+    background-color: #1c1c1c;
+    color: var(--color-text, #e0e0e0);
+    font-family: var(--font-primary, "Poppins", sans-serif);
+    font-size: 0.95rem; /* Mniejsza czcionka w inputach */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]::placeholder,
+.form-group input[type="email"]::placeholder,
+.form-group input[type="number"]::placeholder {
+    color: var(--color-text-muted, #a0a0a0);
+    opacity: 0.6; /* Nieco bardziej widoczny placeholder */
+}
+
+/* Poprawki dla checkboxa i jego etykiety na mobilnych */
+.form-group input[type="checkbox"] {
+    margin-right: calc(var(--spacing-unit, 8px) * 0.75); /* 6px */
+    vertical-align: middle;
+    accent-color: var(--color-accent, #ff6347);
+    width: 16px; /* Nieco mniejszy checkbox */
+    height: 16px;
+    flex-shrink: 0; /* Zapobiega kurczeniu się checkboxa */
+}
+.form-group .checkbox-container { /* Dodatkowy kontener dla elastyczności */
+    display: flex;
+    align-items: flex-start; /* Lepsze wyrównanie, jeśli etykieta jest wieloliniowa */
+}
+.form-group label.checkbox-label {
+    display: inline; /* Pozwól na naturalne zawijanie tekstu */
+    font-weight: 400;
+    color: var(--color-text-muted, #a0a0a0);
+    cursor: pointer;
+    vertical-align: middle; /* Usuń, jeśli .checkbox-container używa flex-start */
+    font-size: 0.85rem; /* Mniejsza czcionka dla zgody */
+    line-height: 1.4; /* Lepsza czytelność wieloliniowej etykiety */
+}
+
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="number"]:focus {
+    outline: none;
+    border-color: var(--color-accent, #ff6347);
+    box-shadow: 0 0 0 2px rgba(var(--color-accent-rgb, 255, 99, 71), 0.2); /* Cieńszy box-shadow */
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: calc(var(--spacing-unit, 8px) * 1.5) calc(var(--spacing-unit, 8px) * 2); /* 12px 16px - mniejszy padding przycisku */
+    background-color: var(--color-accent, #ff6347);
+    color: var(--color-heading, #ffffff);
+    border: none;
+    border-radius: var(--border-radius, 4px);
+    font-family: var(--font-primary, "Poppins", sans-serif);
+    font-size: 1rem; /* Mniejsza czcionka przycisku */
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.15s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: calc(var(--spacing-unit, 8px) * 1); /* Mniejszy margines */
+}
+
+.submit-button:hover, .submit-button:focus {
+    background-color: hsl(from var(--color-accent, #ff6347) h s calc(l - 7%));
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(var(--color-accent-rgb, 255, 99, 71), 0.15); /* Mniejszy cień */
+}
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* ----- KOMUNIKATY FORMULARZA (powinny być spójne) ----- */
+.form-message {
+    margin-top: calc(var(--spacing-unit, 8px) * 1.5); /* 12px */
+    padding: calc(var(--spacing-unit, 8px) * 1.25); /* 10px */
+    border-radius: var(--border-radius, 4px);
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.9rem; /* Mniejsza czcionka komunikatu */
+}
+.form-message.success {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #5cb85c;
+    border: 1px solid rgba(40, 167, 69, 0.3);
+}
+.form-message.error {
+    background-color: rgba(217, 83, 79, 0.1);
+    color: #d9534f;
+    border: 1px solid rgba(217, 83, 79, 0.3);
+}
+
+/* ----- DODATKOWE MEDIA QUERIES DLA BARDZO MAŁYCH EKRANÓW (jeśli potrzebne) ----- */
+@media (max-width: 370px) { /* Np. dla iPhone SE 1st gen */
+    .event-signup-main {
+        padding: calc(var(--spacing-unit, 8px) * 2) var(--spacing-unit, 8px); /* Jeszcze mniejszy padding */
+    }
+    .event-signup-form-wrapper {
+        padding: calc(var(--spacing-unit, 8px) * 2) calc(var(--spacing-unit, 8px) * 1.5); /* 16px 12px */
+    }
+    .event-signup-form-wrapper h2 {
+        font-size: 1.4rem; /* Dostosowanie H2 */
+    }
+    .event-signup-form-wrapper h2::after {
+        margin-bottom: calc(var(--spacing-unit, 8px) * 2); /* 16px */
+    }
+    .form-group label,
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="number"] {
+        font-size: 0.85rem; /* Jeszcze mniejsza czcionka inputów i etykiet */
+    }
+    .form-group label.checkbox-label {
+        font-size: 0.8rem;
+    }
+    .submit-button {
+        font-size: 0.9rem;
+        padding: var(--spacing-unit, 8px) calc(var(--spacing-unit, 8px) * 1.5); /* Mniejszy padding */
+    }
+    .theme-event nav#page-navigation button {
+        font-size: 0.8rem; /* Mniejsza czcionka przycisków nav */
+        padding: calc(var(--spacing-unit, 8px) * 0.75) var(--spacing-unit, 8px);
+        min-width: 100px;
+    }
+    .theme-event h1 {
+        font-size: 1.3rem;
+    }
+}
