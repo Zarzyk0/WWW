@@ -187,7 +187,7 @@ a {
     justify-content: center;
     padding: calc(var(--spacing-unit, 8px) * 3) calc(var(--spacing-unit, 8px) * 1.5); /* 24px 12px - mniejszy padding na mobilnych */
     position: relative;
-    background-image: url('/img/event_background.jpg');
+    background-image: url('/img/zadj.webp');
     background-size: cover;
     background-position: center center;
     background-attachment: scroll; /* Zmieniono na scroll dla lepszej wydajności na mobilnych */
